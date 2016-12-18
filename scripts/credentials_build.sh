@@ -10,10 +10,10 @@ cat build/index.html >> build/index_temp.html
 mv build/index_temp.html build/index.html
 
 echo "---> Cleaning up old files..."
-rm -rf ../../_site_generator/credentials
-mkdir ../../_site_generator/credentials
+rm -rf ./credentials
+mkdir ./credentials
 
 echo "___> Starting Copy"
-cp -pvr ./build/* ../../_site_generator/credentials/
+cp -pvr ./build/* ../../credentials/
 
 echo "Credentials BUILD IS DONE!"

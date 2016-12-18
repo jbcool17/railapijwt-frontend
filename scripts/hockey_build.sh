@@ -11,10 +11,10 @@ cat build/index.html >> build/index_temp.html
 mv build/index_temp.html build/index.html
 
 echo "---> Cleaning up old files..."
-rm -rf ../../_site_generator/hockey
-mkdir ../../_site_generator/hockey
+rm -rf ../../hockey
+mkdir ../../hockey
 
 echo "___> Starting Copy"
-cp -pvr ./build/* ../../_site_generator/hockey/
+cp -pvr ./build/* ../../hockey/
 
 echo "Hockey BUILD IS DONE!"
