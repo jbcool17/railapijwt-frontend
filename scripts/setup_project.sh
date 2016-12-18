@@ -1,22 +1,11 @@
 #!/bin/sh
 
-echo '===> Starting RAILSAPIJWT Project setup...'
-echo '===> Setting up rails api...'
-bundle install
-printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-echo '===> Running Migrations...'
-bundle exec rake db:migrate
-
-echo ''
-printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-echo '===> Populating Database...'
-bundle exec rake db:seed
-bundle exec rake hockey:get_standings
+echo '===> Starting Project setup...'
 
 echo ''
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 echo '===> Setting up jekyll generator...'
-cd _site_generator && bundle
+cd _site_generator #&& bundle
 cd ..
 echo ''
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
