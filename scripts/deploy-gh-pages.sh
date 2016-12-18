@@ -1,9 +1,9 @@
 #!/bin/sh
-git checkout -b gh-pages && ./scripts/build_all.sh
+git checkout -b gh-pages #&& ./scripts/build_all.sh
 
-rm -rf _clients
-rm -rf _site_generator
-mv _site/* .
+# rm -rf _clients
+# rm -rf _site_generator
+# mv _site/* .
 
 git add .
 git commit -m 'adding site'
