@@ -24,4 +24,4 @@ markdown: kramdown
 
 exclude:
   ['_clients', 'Gemfile',
-  'scripts','Gemfile.lock']
+  'scripts','Gemfile.lock', 'Rakefile.rb']
