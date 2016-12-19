@@ -8,8 +8,7 @@
 # Site settings
 title: RAILS API DEMONSTRATION
 email: jbrilla17@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  apis :: yum
+description: frontend for rails api demo
 baseurl: "/railsapijwt-frontend" # the subpath of your site, e.g. /blog
 url: "https://jbcool17.github.io" # the base hostname & protocol for your site
 
