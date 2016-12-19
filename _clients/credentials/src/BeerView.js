@@ -3,7 +3,7 @@ import $ from 'jquery';
 import './Beer.css';
 import BeerItemView from './BeerItemView';
 
-var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : window.location.origin + '/v1'
+var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
 
 var BeerView = React.createClass({
     getInitialState: function() {

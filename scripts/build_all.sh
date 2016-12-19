@@ -9,4 +9,4 @@ printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 echo '---> JEKYLL SITE...'
 ./scripts/build_jekyll.sh
 
-echo "ALL DEPLOY SCRIPT IS COMPLETE!"
+echo "BUILD ALL SCRIPT IS COMPLETE!"

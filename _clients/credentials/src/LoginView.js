@@ -1,6 +1,6 @@
 import React from 'react';
 
-var url = window.location.hostname === 'localhost' ? 'http://localhost:3000' : window.location.origin
+var url = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://floating-tor-40582.herokuapp.com';
 
 var LoginView = React.createClass({
     getInitialState: function() {

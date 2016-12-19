@@ -4,10 +4,10 @@
     <title>RAILS API DEMONSTRATION</title>
     <description>apis :: yum
 </description>
-    <link>https://jbcool17.github.io/railapijwt-frontend/</link>
-    <atom:link href="https://jbcool17.github.io/railapijwt-frontend/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Dec 2016 12:38:35 -0500</pubDate>
-    <lastBuildDate>Mon, 19 Dec 2016 12:38:35 -0500</lastBuildDate>
+    <link>http://localhost:4000/railsapijwt-frontend/</link>
+    <atom:link href="http://localhost:4000/railsapijwt-frontend/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 19 Dec 2016 14:12:49 -0500</pubDate>
+    <lastBuildDate>Mon, 19 Dec 2016 14:12:49 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
   </channel>
