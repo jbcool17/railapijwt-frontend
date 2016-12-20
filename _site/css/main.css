@@ -135,9 +135,22 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 #nav-projects li a { color: black; text-decoration: none; padding: 15px 15px 15px 10px; }
 #nav-projects li a:hover { background-color: cornflowerblue; cursor: pointer; color: black; }
 
-.LoginView { margin-top: 15px; }
+.Credentials input[type='text'] { border: 2px solid #ddd; border-radius: 0; color: #999; display: block; font: 400 1em/1 "Open Sans",sans-serif; margin: 0 0 .5em; padding: 1em 1.25em; width: 95%; -webkit-transition: border-color 300ms,color 300ms; transition: border-color 300ms,color 300ms; -webkit-appearance: none; }
+.Credentials button { margin-left: 5px; padding: 10px 20px 10px 20px; border: 2px solid deepskyblue; border-radius: 40px; background: transparent; color: deepskyblue; letter-spacing: 1px; font-size: 18px; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s; transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s; }
+.Credentials button:hover { background-color: deepskyblue; color: #fff; }
 
-.BeerView { margin-top: 15px; }
+.ViewTitle { margin-bottom: 10px; background: lightblue; display: inline-block; padding: 5px; }
+
+.SignUpView { margin-bottom: 10px; }
+
+.LoginView { margin-top: 10px; margin-bottom: 10px; }
+
+.BeerView { margin-top: 10px; }
+.BeerView table { margin-top: 15px; width: 100%; background: lightcyan; }
+.BeerView table thead { background: deepskyblue; color: white; }
+.BeerView table thead th { padding: 10px; }
+.BeerView table tbody tr { text-align: center; }
+.BeerView table tbody tr:hover { background: lightgreen; }
 
 .HockeyDataView { margin-top: 15px; }
 

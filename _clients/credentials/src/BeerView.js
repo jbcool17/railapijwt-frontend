@@ -1,6 +1,5 @@
 import React from 'react';
 import $ from 'jquery';
-import './Beer.css';
 import BeerItemView from './BeerItemView';
 
 var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
@@ -10,7 +9,7 @@ var BeerView = React.createClass({
         return { beer: [], beerCount: 0, info: '' }
     },
     componentDidMount: function() {
-        document.getElementById("thead").style.visibility = "hidden";
+        document.getElementById("beer-table").style.visibility = "hidden";
     },
     getAllBeer: function(e) {
         this.setState({info: 'Getting All Beers...'})
@@ -35,7 +34,7 @@ var BeerView = React.createClass({
                   })
               }
               this.setState({ beer: beers, beerCount: beers.length, info: "Beers Loaded." })
-              document.getElementById("thead").style.visibility = "";
+              document.getElementById("beer-table").style.visibility = "";
           }
 
 
@@ -50,7 +49,7 @@ var BeerView = React.createClass({
         var name = document.getElementById('beerName').value
 
         if (!name) {
-            document.getElementById("thead").style.visibility = "hidden";
+            document.getElementById("beer-table").style.visibility = "hidden";
             this.setState({ beer: [], beerCount: 0, info: '' })
             return
         }
@@ -79,11 +78,11 @@ var BeerView = React.createClass({
                           alcohol: j[i].attributes.alcohol
                       })
                   }
-                  document.getElementById("thead").style.visibility = "";
+                  document.getElementById("beer-table").style.visibility = "";
                 }
 
                 if (beers.length === 0){
-                  document.getElementById("thead").style.visibility = "hidden";
+                  document.getElementById("beer-table").style.visibility = "hidden";
                   message = "No Beers Found.";
                 } else {
                   message = "Loaded."
@@ -173,12 +172,12 @@ var BeerView = React.createClass({
 
         return (
             <div className="BeerView">
-              <h3>Beer - <span className="info">List({this.state.beerCount}) {this.state.info}</span></h3>
+              <div className="ViewTitle">Beer - <span className="info">List({this.state.beerCount}) {this.state.info}</span></div>
               <input onKeyUp={this.lookupBeer} type="text" id="beerName" placeholder="Enter Beer Name"/>
               <button onClick={this.lookupBeer} id="lookupBeer">Look Up Beer</button>
               <button onClick={this.getAllBeer} id="beer">Get All Beer</button>
 
-              <table>
+              <table id='beer-table'>
                 <thead id='thead'>
                   <tr>
                     <th>Name</th>

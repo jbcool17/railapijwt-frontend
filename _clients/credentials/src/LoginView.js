@@ -54,7 +54,7 @@ var LoginView = React.createClass({
     render: function() {
         return (
             <div className="LoginView">
-              <h3>Login Here - <span className='info'>{this.state.currentUser}</span></h3>
+              <div className="ViewTitle">Login Here - <span className='info'>{this.state.currentUser}</span></div>
                 <input type="text" id="loginEmail" placeholder="Enter Email"/>
                 <input type="text" id="loginPassword" placeholder="Enter Pass"/>
                 <button onClick={this.handleLogIn} id="login">Log In</button>

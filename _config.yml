@@ -17,10 +17,13 @@ twitter_username: j0hn_8ri11a
 github_username:  jbcool17
 linkedin: johnbrilla
 pinterest: jbrilla17
-
+repository: jbcool17/railsapijwt-frontend
 # Build settings
 markdown: kramdown
 
 exclude:
-  ['_clients', 'Gemfile',
-  'scripts','Gemfile.lock', 'Rakefile.rb']
+  ['_clients',
+  'Gemfile',
+  'scripts',
+  'Gemfile.lock',
+  'Rakefile.rb']

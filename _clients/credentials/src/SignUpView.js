@@ -69,7 +69,7 @@ var SignUpView = React.createClass({
     render: function() {
         return (
           <div className="SignUpView">
-            <h3>Sign Up Here & Confirm - <span className='info'>{this.state.info}</span></h3>
+            <div className="ViewTitle">Sign Up Here & Confirm - <span className='info'>{this.state.info}</span></div>
             <input type="text" id="email" placeholder="Enter Email"/>
             <input type="text" id="password" placeholder="Enter Pass"/>
             <input type="text" id="passwordConfirmation" placeholder="Confirm Password"/>

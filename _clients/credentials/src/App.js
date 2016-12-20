@@ -6,7 +6,7 @@ import BeerView from './BeerView';
 var App = React.createClass({
     render: function() {
         return (
-            <div className="App">
+            <div className="Credentials">
               <div className='title'>
                 <h2>Testing API</h2>
               </div>

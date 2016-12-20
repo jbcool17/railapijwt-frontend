@@ -24,7 +24,7 @@ rake setup:project
 ```
 
 ```
-# Rails API Setup
+# Setup - Rails API - http://localhost:3000/
 # https://github.com/jbcool17/railsapijwt/
 ```
 

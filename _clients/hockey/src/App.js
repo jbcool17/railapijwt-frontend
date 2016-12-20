@@ -87,7 +87,7 @@ class App extends Component {
     render() {
 
         return (
-            <div className="App">
+            <div className="Hockey">
               <div className='title'>
                 <h2>Hockey API</h2>
               </div>

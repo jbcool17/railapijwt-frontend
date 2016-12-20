@@ -54,13 +54,82 @@
 // --------------------------------
 // Credentials
 // --------------------------------
+.Credentials {
+  input[type='text'] {
+    border: 2px solid #ddd;
+    border-radius: 0;
+    color: #999;
+    display: block;
+    font: 400 1em/1 "Open Sans",sans-serif;
+    margin: 0 0 .5em;
+    padding: 1em 1.25em;
+    width: 95%;
+    -webkit-transition: border-color 300ms,color 300ms;
+    transition: border-color 300ms,color 300ms;
+    -webkit-appearance: none;
+  }
+  button {
+    margin-left: 5px;
+    padding: 10px 20px 10px 20px;
+    border: 2px solid deepskyblue;
+    border-radius: 40px;
+    background: transparent;
+    color: deepskyblue;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+    &:hover {
+      background-color: deepskyblue;
+      color: #fff;
+    }
+  }
+}
+.ViewTitle {
+  margin-bottom: 10px;
+  background: lightblue;
+  display: inline-block;
+  padding: 5px;
+}
+.SignUpView {
+  margin-bottom: 10px;
+}
 .LoginView {
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .BeerView {
-  margin-top: 15px;
+  margin-top: 10px;
+  table{
+    margin-top: 15px;
+    width: 100%;
+    background: lightcyan;
+    thead {
+      background: deepskyblue;
+      color:white;
+      th {
+        padding: 10px;
+        //  cursor: pointer; cursor: hand;
+        &:hover{
+          // background-color: skyblue;
+        }
+      }
+    }
+    tbody {
+      tr {
+        text-align: center;
+        &:hover {
+            background: lightgreen;
+        }
+      }
+
+    }
+  }
 }
+
 // --------------------------------
 // Hockey
 // --------------------------------
