@@ -18,6 +18,10 @@ namespace :build do
   task :hockey do
     sh "scripts/build_hockey.sh"
   end
+  desc "Build Graphs"
+  task :graphs do
+    `cp -pvr ./_clients/graphs .`
+  end
   desc "Builds Jekyll Site to _site folder"
   task :jekyll do
     sh "scripts/build_jekyll.sh"

@@ -1,0 +1,7 @@
+id,games,wins,losses,losses_ot,points,points_pct,goals,opp_goals,srs,sos,points_pct_old,ro_wins,created_at,updated_at,team_name
+10,32,21,10,1,43,0,108,72,1,0,0,21,2016-12-16 16:08:30 UTC,2016-12-18 00:02:03 UTC,New York Rangers
+40,32,21,10,1,43,0,108,72,1,0,0,21,2016-12-17 23:45:55 UTC,2016-12-17 23:45:55 UTC,New York Rangers
+69,34,23,10,1,47,0,113,75,1,0,0,21,2016-12-20 14:58:10 UTC,2016-12-20 14:58:10 UTC,New York Rangers
+16,30,11,13,6,28,0,79,93,0,0,0,10,2016-12-16 16:08:30 UTC,2016-12-18 00:02:03 UTC,New York Islanders
+46,30,11,13,6,28,0,79,93,0,0,0,10,2016-12-17 23:45:55 UTC,2016-12-17 23:45:55 UTC,New York Islanders
+76,31,11,14,6,28,0,81,99,0,0,0,10,2016-12-20 14:58:10 UTC,2016-12-20 14:58:10 UTC,New York Islanders
