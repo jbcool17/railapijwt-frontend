@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HockeySearchView from './HockeySearchView';
 import HockeyDataView from './HockeyDataView';
+import HockeyTeamsView from './HockeyTeamsView';
 import sortBy from './sortHelpers';
 
 var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
@@ -16,6 +17,7 @@ class App extends Component {
 
         this.searchTeamNames = this.searchTeamNames.bind(this);
         this.hockeySort = this.hockeySort.bind(this);
+        this.getAll = this.getAll.bind(this);
     };
     searchTeamNames(e) {
         this.setState({info: '- Looking up teams...'})
@@ -52,7 +54,7 @@ class App extends Component {
             if (hockeyData.length > 0) {
                 console.log('Setting Hockey Data: ')
                 console.log(hockeyData);
-                this.setState({ data: hockeyData, info: "- Team(s) Loaded..." })
+                this.setState({ data: hockeyData, info: "- "+ hockeyData.length + " Team(s) Loaded..." })
                 document.getElementById("hockey-table").style.visibility = "";
 
             } else {
@@ -84,6 +86,44 @@ class App extends Component {
     componentDidMount() {
       document.getElementById("hockey-table").style.visibility = "hidden";
     }
+    getAll(){
+      console.log("getting all")
+      fetch(url + "/standings/search/a", { method: 'GET' }).then(function(response) {
+          return response.json()
+      }).then(function(json) {
+          var data = json.data,
+              hockeyData = [];
+
+          for (var i = 0; i < data.length; i++) {
+              hockeyData.push({ id: data[i].id, team_name: data[i].attributes['team-name'],
+                                games: data[i].attributes.games,
+                                wins: data[i].attributes.wins,
+                                losses: data[i].attributes.losses,
+                                losses_ot: data[i].attributes['losses-ot'],
+                                points: data[i].attributes.points
+                             })
+          }
+
+          if (hockeyData.length > 0) {
+              console.log('Setting Hockey Data: ')
+              console.log(hockeyData);
+              this.setState({ data: hockeyData, info: "- "+ hockeyData.length + " Team(s) Loaded..." })
+              document.getElementById("hockey-table").style.visibility = "";
+
+          } else {
+              document.getElementById("hockey-table").style.visibility = "hidden";
+              var tableHeaders = document.getElementsByTagName('th');
+              for (var k = 0; k < tableHeaders.length; k++){
+                tableHeaders[k].style.background = '';
+              }
+              this.setState({info: '- Not Found.'})
+          }
+
+      }.bind(this)).catch(function(error) {
+          console.log('ERROR')
+          console.log(error);
+      });
+    }
     render() {
 
         return (
@@ -91,7 +131,8 @@ class App extends Component {
               <div className='title'>
                 <h2>Hockey API</h2>
               </div>
-              <HockeySearchView onKeyUp={this.searchTeamNames}/>
+              <HockeyTeamsView />
+              <HockeySearchView getAll={this.getAll} onKeyUp={this.searchTeamNames}/>
               <HockeyDataView data={this.state.data} info={this.state.info} hockeySort={this.hockeySort}/>
             </div>
         );
