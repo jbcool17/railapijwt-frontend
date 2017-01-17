@@ -183,7 +183,6 @@ class App extends Component {
             <div className="Hockey">
               <div className='title'>
                 <h2>Hockey API</h2>
-                <p>Data Updated Daily</p>
               </div>
               <HockeySearchView listChange={this.listChange}
                                 teams={this.state.teams}
