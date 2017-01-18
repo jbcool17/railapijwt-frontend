@@ -27,6 +27,7 @@ class App extends Component {
       }).then(function(data) {
           this.setState({teams: data, info: ''});
           console.log('setting data')
+          document.getElementById('teamList').style.visibility = '';
 
       }.bind(this)).catch(function(error) {
           console.log('ERROR')
@@ -61,7 +62,8 @@ class App extends Component {
                                   wins: data[i].attributes.wins,
                                   losses: data[i].attributes.losses,
                                   losses_ot: data[i].attributes['losses-ot'],
-                                  points: data[i].attributes.points
+                                  points: data[i].attributes.points,
+                                  date: data[i].attributes.date
                                })
             }
 
@@ -99,6 +101,8 @@ class App extends Component {
     }
     componentDidMount() {
       document.getElementById("hockey-table").style.visibility = "hidden";
+      document.getElementById('teamList').style.visibility = 'hidden';
+
     }
     getAll(){
       this.setState({info: '- Getting All Standings...'})
@@ -115,7 +119,8 @@ class App extends Component {
                                 wins: data[i].attributes.wins,
                                 losses: data[i].attributes.losses,
                                 losses_ot: data[i].attributes['losses-ot'],
-                                points: data[i].attributes.points
+                                points: data[i].attributes.points,
+                                date: data[i].attributes.date
                              })
           }
 
@@ -157,7 +162,8 @@ class App extends Component {
                                 wins: data[i].attributes.wins,
                                 losses: data[i].attributes.losses,
                                 losses_ot: data[i].attributes['losses-ot'],
-                                points: data[i].attributes.points
+                                points: data[i].attributes.points,
+                                date: data[i].attributes.date
                              })
           }
 
@@ -166,9 +172,11 @@ class App extends Component {
               console.log(hockeyData);
               this.setState({ data: hockeyData, info: "- "+ hockeyData.length + " Team(s) Loaded..." })
               document.getElementById("hockey-table").style.visibility = "";
+              document.getElementById('teamList').style.visibility = '';
 
           } else {
               document.getElementById("hockey-table").style.visibility = "hidden";
+              document.getElementById('teamList').style.visibility = 'hidden';
               var tableHeaders = document.getElementsByTagName('th');
               for (var k = 0; k < tableHeaders.length; k++){
                 tableHeaders[k].style.background = '';

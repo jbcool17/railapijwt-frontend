@@ -28,7 +28,11 @@ var sortBy = {
       if (a.team_name > b.team_name)
         return 1;
       return 0;
-    }
+    },
+    date: function(data) {
+        return data.sort(function(a, b) {
+            return a.date - b.date }).reverse();
+    },
 }
 
 export default sortBy;
