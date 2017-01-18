@@ -21,10 +21,11 @@ class App extends Component {
         this.listChange = this.listChange.bind(this);
     };
     componentWillMount(){
+      this.setState({info: '- Getting Teams List...'})
       fetch(url + "/standings/teams", { method: 'GET' }).then(function(response) {
           return response.json()
       }).then(function(data) {
-          this.setState({teams: data});
+          this.setState({teams: data, info: ''});
           console.log('setting data')
 
       }.bind(this)).catch(function(error) {
@@ -100,7 +101,8 @@ class App extends Component {
       document.getElementById("hockey-table").style.visibility = "hidden";
     }
     getAll(){
-      console.log("getting all")
+      this.setState({info: '- Getting All Standings...'})
+      console.log("getting all...")
       fetch(url + "/standings/search/a", { method: 'GET' }).then(function(response) {
           return response.json()
       }).then(function(json) {
