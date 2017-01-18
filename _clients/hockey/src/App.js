@@ -141,7 +141,10 @@ class App extends Component {
     }
     listChange(e){
       var index = e.nativeEvent.target.selectedIndex,
-          teamName = encodeURI(e.nativeEvent.target[index].text);
+          teamName = encodeURI(e.nativeEvent.target[index].text),
+          team = e.nativeEvent.target[index].text;
+
+      this.setState({info: '- Getting All Standings for ' + team})
       fetch(url + "/standings/teams?name=" + teamName, { method: 'GET' }).then(function(response) {
           return response.json()
       }).then(function(json) {
