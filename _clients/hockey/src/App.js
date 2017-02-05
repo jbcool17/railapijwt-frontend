@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import HockeySearchView from './HockeySearchView';
 import HockeyDataView from './HockeyDataView';
+import GraphView from './GraphView';
 import sortBy from './sortHelpers';
 
-var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
+// var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
+var url = 'https://floating-tor-40582.herokuapp.com/v1';
 
 class App extends Component {
     constructor(props, context) {
@@ -202,7 +204,9 @@ class App extends Component {
                                 getAll={this.getAll}
                                 onKeyUp={this.searchTeamNames} />
               <HockeyDataView data={this.state.data} info={this.state.info} hockeySort={this.hockeySort}/>
+              <GraphView graphData={this.state.data}/>
             </div>
+
         );
     }
 }
