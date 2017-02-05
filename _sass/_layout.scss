@@ -114,19 +114,19 @@
     bottom: 0;
     right: 0;
     left: 0;
-    border-top: 1px solid forestgreen;
+
     padding: 5px 0;
     background-color: $footer-background;
     color: black;
-    -webkit-box-shadow:0 -2px 3px rgba(0,0,0,.4);
-    -moz-box-shadow:0 -2px 3px rgba(0,0,0,.4);
-    -o-box-shadow:0 -2px 3px rgba(0,0,0,.4);
-    box-shadow: 0 -2px 3px rgba(0,0,0,.4);
+    -webkit-box-shadow:0 -2px 3px rgba(0,0,0,.1);
+    -moz-box-shadow:0 -2px 3px rgba(0,0,0,.1);
+    -o-box-shadow:0 -2px 3px rgba(0,0,0,.1);
+    box-shadow: 0 -2px 3px rgba(0,0,0,.1);
 
     a {
-      color: black;
+      color: deepskyblue;
       &:hover {
-        color: forestgreen;
+        color: black;
       }
     }
 

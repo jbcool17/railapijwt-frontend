@@ -4,8 +4,7 @@ import HockeyDataView from './HockeyDataView';
 import GraphView from './GraphView';
 import sortBy from './sortHelpers';
 
-// var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
-var url = 'https://floating-tor-40582.herokuapp.com/v1';
+var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
 
 class App extends Component {
     constructor(props, context) {
