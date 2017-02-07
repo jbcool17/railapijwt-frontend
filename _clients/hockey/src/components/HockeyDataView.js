@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './HockeyDataView.css';
+import '../styles/HockeyDataView.css';
 
 class HockeyDataView extends Component {
     render() {

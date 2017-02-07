@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import HockeySearchView from './HockeySearchView';
 import HockeyDataView from './HockeyDataView';
 import GraphView from './GraphView';
-import sortBy from './sortHelpers';
+import sortBy from '../utilities/sortHelpers';
 
 var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
 
@@ -27,11 +27,9 @@ class App extends Component {
           return response.json()
       }).then(function(data) {
           this.setState({teams: data, info: ''});
-          console.log('setting data')
           document.getElementById('teamList').style.visibility = '';
 
       }.bind(this)).catch(function(error) {
-          console.log('ERROR')
           console.log(error);
       });
     }
