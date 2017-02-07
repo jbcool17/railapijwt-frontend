@@ -3,6 +3,8 @@ import HockeySearchView from './HockeySearchView';
 import HockeyDataView from './HockeyDataView';
 import GraphView from './GraphView';
 import sortBy from '../utilities/sortHelpers';
+import viewHelpers from '../utilities/viewHelpers';
+import dataHelpers from '../utilities/dataHelpers';
 
 var url = window.location.hostname === 'localhost' ? 'http://localhost:3000/v1' : 'https://floating-tor-40582.herokuapp.com/v1';
 
@@ -27,8 +29,7 @@ class App extends Component {
           return response.json()
       }).then(function(data) {
           this.setState({teams: data, info: ''});
-          document.getElementById('teamList').style.visibility = '';
-
+          viewHelpers.showById('teamList');
       }.bind(this)).catch(function(error) {
           console.log(error);
       });
@@ -39,7 +40,7 @@ class App extends Component {
 
         if (!teamName) {
             this.setState({ info: '' });
-            document.getElementById("hockey-table").style.visibility = "hidden";
+            viewHelpers.hideById('hockey-table');
 
             var tableHeaders = document.getElementsByTagName('th');
             for (var i = 0; i < tableHeaders.length; i++){
@@ -49,31 +50,21 @@ class App extends Component {
             return
         }
 
-        fetch(url + "/standings/search/" + teamName, { method: 'GET' }).then(function(response) {
+        var getUrl = url + "/standings/search/" + teamName;
+        fetch(getUrl, { method: 'GET' }).then(function(response) {
             return response.json()
         }).then(function(json) {
             var data = json.data,
-                hockeyData = [];
-
-            for (var i = 0; i < data.length; i++) {
-                hockeyData.push({ id: data[i].id, team_name: data[i].attributes['team-name'],
-                                  games: data[i].attributes.games,
-                                  wins: data[i].attributes.wins,
-                                  losses: data[i].attributes.losses,
-                                  losses_ot: data[i].attributes['losses-ot'],
-                                  points: data[i].attributes.points,
-                                  date: data[i].attributes.date
-                               })
-            }
+                hockeyData = dataHelpers.handleData(data);
 
             if (hockeyData.length > 0) {
                 console.log('Setting Hockey Data: ')
                 console.log(hockeyData);
                 this.setState({ data: hockeyData, info: "- "+ hockeyData.length + " Team(s) Loaded..." })
-                document.getElementById("hockey-table").style.visibility = "";
+                viewHelpers.showById('hockey-table');
 
             } else {
-                document.getElementById("hockey-table").style.visibility = "hidden";
+                viewHelpers.hideById('hockey-table');
                 var tableHeaders = document.getElementsByTagName('th');
                 for (var k = 0; k < tableHeaders.length; k++){
                   tableHeaders[k].style.background = '';
@@ -99,9 +90,8 @@ class App extends Component {
       document.getElementById(id).style.background = "darkblue";
     }
     componentDidMount() {
-      document.getElementById("hockey-table").style.visibility = "hidden";
-      document.getElementById('teamList').style.visibility = 'hidden';
-
+      viewHelpers.hideById('hockey-table');
+      viewHelpers.hideById('teamList');
     }
     getAll(){
       this.setState({info: '- Getting All Standings...'})
@@ -110,27 +100,16 @@ class App extends Component {
           return response.json()
       }).then(function(json) {
           var data = json.data,
-              hockeyData = [];
-
-          for (var i = 0; i < data.length; i++) {
-              hockeyData.push({ id: data[i].id, team_name: data[i].attributes['team-name'],
-                                games: data[i].attributes.games,
-                                wins: data[i].attributes.wins,
-                                losses: data[i].attributes.losses,
-                                losses_ot: data[i].attributes['losses-ot'],
-                                points: data[i].attributes.points,
-                                date: data[i].attributes.date
-                             })
-          }
+              hockeyData = dataHelpers.handleData(data);
 
           if (hockeyData.length > 0) {
               console.log('Setting Hockey Data: ')
               console.log(hockeyData);
               this.setState({ data: hockeyData, info: "- "+ hockeyData.length + " Team(s) Loaded..." })
-              document.getElementById("hockey-table").style.visibility = "";
+              viewHelpers.showById('hockey-table');
 
           } else {
-              document.getElementById("hockey-table").style.visibility = "hidden";
+              viewHelpers.hideById('hockey-table');
               var tableHeaders = document.getElementsByTagName('th');
               for (var k = 0; k < tableHeaders.length; k++){
                 tableHeaders[k].style.background = '';
@@ -153,29 +132,17 @@ class App extends Component {
           return response.json()
       }).then(function(json) {
           var data = json.data,
-              hockeyData = [];
-
-          for (var i = 0; i < data.length; i++) {
-              hockeyData.push({ id: data[i].id, team_name: data[i].attributes['team-name'],
-                                games: data[i].attributes.games,
-                                wins: data[i].attributes.wins,
-                                losses: data[i].attributes.losses,
-                                losses_ot: data[i].attributes['losses-ot'],
-                                points: data[i].attributes.points,
-                                date: data[i].attributes.date
-                             })
-          }
+              hockeyData = dataHelpers.handleData(data);
 
           if (hockeyData.length > 0) {
               console.log('Setting Hockey Data: ')
               console.log(hockeyData);
               this.setState({ data: hockeyData, info: "- "+ hockeyData.length + " Team(s) Loaded..." })
-              document.getElementById("hockey-table").style.visibility = "";
-              document.getElementById('teamList').style.visibility = '';
-
+              viewHelpers.showById('hockey-table');
+              viewHelpers.showById('teamList');
           } else {
-              document.getElementById("hockey-table").style.visibility = "hidden";
-              document.getElementById('teamList').style.visibility = 'hidden';
+              viewHelpers.hideById('hockey-table');
+              viewHelpers.hideById('teamList')
               var tableHeaders = document.getElementsByTagName('th');
               for (var k = 0; k < tableHeaders.length; k++){
                 tableHeaders[k].style.background = '';
